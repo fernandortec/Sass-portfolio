@@ -1,0 +1,107 @@
+.projects {
+    padding-bottom: 2rem;
+
+    &-bio-image {
+        height: 30vh;
+        width: 100%;
+        background: 
+            linear-gradient(
+                to right,
+                rgba($primary-color, 0.9),
+                rgba($primary-color, 0.3)
+            ),  
+            url('/dist/img/model-1.jpg') center top;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+
+        .text-secondary {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &-bio {
+        width: 80%;
+        text-align: center;
+
+        .text-secondary {
+            padding-bottom: 1rem;
+        }
+    }
+
+    &-items {
+        width: 60vh;
+        margin: 2rem auto 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+    }
+
+    &-item {
+        position: relative;
+        border-bottom: 5px solid $secondary-color;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: $secondary-color;
+            opacity: 0;
+            @include transition-ease;
+        }
+
+        h2 {
+            margin: 10px 0;
+        }
+        &:hover {
+            &::after {
+                top: 0;
+                opacity: 0.9;
+            }
+            .projects-btn {
+                opacity: 1;
+            }
+        }
+    }
+
+    &-btns {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        align-items: center;
+        text-align: center;
+    }
+
+    &-btn {
+        opacity: 0;
+        color: set-text-color($secondary-color);
+        @include transition-ease;
+
+        &:hover {
+            color:set-text-color(set-text-color($secondary-color));
+        }
+    }
+
+    .social-icons {
+        display: flex;
+        flex-direction: column;
+    }
+}
+footer {
+    transform: rotate(90deg) translate(-3rem,-5rem);
+}
